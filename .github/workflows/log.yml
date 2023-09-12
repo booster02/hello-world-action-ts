@@ -1,0 +1,22 @@
+name: log
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  schedule:
+    - cron: '31 7 * * 3'
+
+jobs:
+  log:
+    name: Log
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        id: checkout
+        uses: actions/checkout@v4
+      - name: log
+        id: log
+        uses: ./
